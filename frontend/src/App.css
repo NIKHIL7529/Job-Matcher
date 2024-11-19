@@ -1,0 +1,43 @@
+h1 {
+  color: #4caf50;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav {
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav ul li {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  flex: 0 1 calc(33.333% - 20px);
+  margin: 10px;
+  max-width: 400px;
+}
+
+nav ul li:hover {
+  transform: translateY(-5px);
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}

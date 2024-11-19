@@ -1,0 +1,73 @@
+.find-jobs {
+  padding: 20px;
+}
+
+.find-jobs h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.find-jobs .form-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.find-jobs input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.find-jobs button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.find-jobs button:hover {
+  background-color: #4caf50;
+}
+
+.job-listings ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.job-listings li {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  flex: 0 1 calc(33.333% - 20px);
+  margin: 10px;
+  max-width: 400px;
+}
+
+.job-listings li:hover {
+  transform: translateY(-5px);
+}
+
+.job-listings h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.job-listings p {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
