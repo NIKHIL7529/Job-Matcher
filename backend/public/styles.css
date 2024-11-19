@@ -9,7 +9,7 @@ body {
 h1 {
   color: #4caf50;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 ul {
@@ -54,19 +54,19 @@ ul {
 }
 
 li {
-  flex: 0 1 calc(33.333% - 20px); 
+  flex: 0 1 calc(33.333% - 20px);
   margin: 10px;
   max-width: 400px;
 }
 
 @media (max-width: 768px) {
   li {
-    flex: 0 1 calc(50% - 20px); 
+    flex: 0 1 calc(50% - 20px);
   }
 }
 
 @media (max-width: 480px) {
   li {
-    flex: 0 1 100%; 
+    flex: 0 1 100%;
   }
 }
