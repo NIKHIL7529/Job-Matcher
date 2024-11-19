@@ -53,7 +53,7 @@ app.get("/api/jobs", async (req, res) => {
         <li>
           <p><strong>Job:</strong> ${job.jobTitle}</p>
           <p><strong>Description:</strong> ${job.description}</p>
-          <p><strong>Location:</strong> ${job.location}</p>
+          <p style= "text-transform : uppercase;"><strong>Location:</strong> ${job.location}</p>
         </li>
       `;
     });
@@ -71,23 +71,24 @@ app.get("/api/jobs", async (req, res) => {
 
 app.get("/api/jobs/location/:location", async (req, res) => {
   const { location } = req.params;
+  const loc = location.toLowerCase()
 
   try {
-    const jobs = await Job.find({ location: location });
+    const jobs = await Job.find({ location: loc });
     if (jobs.length === 0) {
       return res
         .status(404)
-        .send(`<h1>No jobs found for location: ${location}</h1>`);
+        .send(`<h1 style= "text-transform : uppercase;">No jobs found for location: ${location}</h1>`);
     }
 
     let htmlContent = `
         <html>
           <head>
-            <title>Jobs in ${location}</title>
+            <title style= "text-transform : uppercase;">Jobs in ${location}</title>
             <link rel="stylesheet" href="${process.env.style}">
           </head>
           <body>
-            <h1>Job Listings for ${location}</h1>
+            <h1 style= "text-transform : uppercase;">Job Listings for ${location}</h1>
             <ul>
       `;
 
@@ -96,7 +97,7 @@ app.get("/api/jobs/location/:location", async (req, res) => {
           <li>
             <p><strong>Job:</strong> ${job.jobTitle}</p>
             <p><strong>Description:</strong> ${job.description}</p>
-            <p><strong>Location:</strong> ${job.location}</p>
+            <p style= "text-transform : uppercase;"><strong>Location:</strong> ${job.location}</p>
           </li>
         `;
     });
@@ -117,7 +118,8 @@ app.get("/api/jobs/location/:location", async (req, res) => {
 app.post("/api/jobs", async (req, res) => {
   const { jobTitle, description, location } = req.body;
   try {
-    const newJob = new Job({ jobTitle, description, location });
+    const loc = location.toLowerCase()
+    const newJob = new Job({ jobTitle, description, loc});
     await newJob.save();
     res.redirect("/api/jobs");
   } catch (err) {
