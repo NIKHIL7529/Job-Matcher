@@ -71,14 +71,16 @@ app.get("/api/jobs", async (req, res) => {
 
 app.get("/api/jobs/location/:location", async (req, res) => {
   const { location } = req.params;
-  const loc = location.toLowerCase()
+  const loc = location.toLowerCase();
 
   try {
     const jobs = await Job.find({ location: loc });
     if (jobs.length === 0) {
       return res
         .status(404)
-        .send(`<h1 style= "text-transform : uppercase;">No jobs found for location: ${location}</h1>`);
+        .send(
+          `<h1 style= "text-transform : uppercase;">No jobs found for location: ${location}</h1>`
+        );
     }
 
     let htmlContent = `
@@ -118,8 +120,8 @@ app.get("/api/jobs/location/:location", async (req, res) => {
 app.post("/api/jobs", async (req, res) => {
   const { jobTitle, description, location } = req.body;
   try {
-    const loc = location.toLowerCase()
-    const newJob = new Job({ jobTitle, description, loc});
+    const loc = location.toLowerCase();
+    const newJob = new Job({ jobTitle, description, location: loc });
     await newJob.save();
     res.redirect("/api/jobs");
   } catch (err) {
